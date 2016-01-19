@@ -14,6 +14,7 @@
     @property (nonatomic, strong) CAShapeLayer * segmentedItemLayer;
     @property (nonatomic) CGFloat segmentIconHeight;
     @property (nonatomic) CGFloat autoSpacing;
+    @property (nonatomic) NSMutableArray * positionArray;
 
 
 @end
@@ -148,8 +149,10 @@
     self.segmentIconHeight = 0;
     self.indicatorHeight = 5;
     self.spacing = 0;
-    self.numberOfSegments = [self.imageArray count];
     self.selectedSegmentIndex = 0;
+    
+    self.numberOfSegments = [self.imageArray count];
+    self.positionArray = [NSMutableArray new];
     
     self.backgroundLayer = [CALayer layer];
     self.segmentedItemLayer = [CAShapeLayer layer];
@@ -322,6 +325,7 @@
 
                 }
                 
+                [self.positionArray addObject:[NSNumber numberWithFloat:x]];
                 
                 CALayer * imageLayer = [CALayer layer];
                 imageLayer.contents = (id)iconForSegmentedContorlItem.CGImage;
@@ -501,32 +505,30 @@
                 
                 break;
                 
-            }default:
-            
-                break;
-            
-            
-            
-            /*
-            
-            case PCLSegmentedControlAnimationTypeDynamic:{
+            }case PCLSegmentedControlAnimationTypeDynamic:{
+                
+                [self setNeedsDisplay];
+                
+                /*
                 
                 CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
             
+                CGFloat x = [self.positionArray[segmentIndex-1] floatValue];
+                
                 [animation setFromValue:[NSNumber numberWithFloat:0.0f]];
-                [animation setToValue:[NSNumber numberWithFloat:100.0f]];
-                [animation setDuration:0.5f];
+                [animation setToValue:[NSNumber numberWithFloat:x]];
+                [animation setDuration:0.25f];
                 
                 [self.segmentedItemLayer addAnimation:animation forKey:@"transform.translation.x"];
                 
-                
-                
-                
-                
+                 */
+                 
                 break;
+                
             }default:
+                
                 break;
-            */
+            
                 
         }
         

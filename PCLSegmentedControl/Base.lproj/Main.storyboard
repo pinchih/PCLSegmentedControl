@@ -29,26 +29,17 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVv-Hf-Jph">
-                                <rect key="frame" x="128" y="504" width="65" height="30"/>
-                                <state key="normal" title="Get value"/>
-                                <connections>
-                                    <action selector="getValue:" destination="BYZ-38-t0r" eventType="touchDown" id="nFa-cJ-zNz"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S55-eY-UFF">
-                                <rect key="frame" x="139" y="390" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBz-EO-Ded" customClass="PCLSegmentedControl">
+                                <rect key="frame" x="20" y="274" width="280" height="57"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="containerView" destination="Kj2-TT-N8H" id="leP-mP-fN6"/>
-                        <outlet property="label" destination="S55-eY-UFF" id="PXp-ed-QeC"/>
+                        <outlet property="segmentedControl1" destination="Kj2-TT-N8H" id="YTg-XB-Jsh"/>
+                        <outlet property="segmentedControl2" destination="BBz-EO-Ded" id="cg0-th-XIL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

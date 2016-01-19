@@ -10,8 +10,9 @@
 
 @interface ViewController ()
 
-    @property (nonatomic) IBOutlet PCLSegmentedControl *containerView;
-    @property (nonatomic) IBOutlet UILabel *label;
+    @property (nonatomic) IBOutlet PCLSegmentedControl *segmentedControl1;
+    @property (nonatomic) IBOutlet PCLSegmentedControl *segmentedControl2;
+
 @end
 
 @implementation ViewController
@@ -28,30 +29,26 @@
     
     NSArray * inputArray = [[NSArray alloc] initWithObjects:logo1,logo2,logo3,logo4,nil];
     
-    _containerView = [[PCLSegmentedControl alloc]initWithImages:inputArray andFrame:self.containerView.frame];
+    self.segmentedControl1 = [[PCLSegmentedControl alloc]initWithImages:inputArray andFrame:self.segmentedControl1.frame];
+    self.segmentedControl1.backgroundColor = [UIColor colorWithWhite:0.698 alpha:1.000];
+    self.segmentedControl1.roundedBackground = YES;
+    self.segmentedControl1.lineWidthForSelection = 2;
+    self.segmentedControl1.offSetInY = 5;
+    self.segmentedControl1.fillColor = [UIColor blueColor];
     
     
-    
-    _containerView.backgroundColor = [UIColor colorWithWhite:0.698 alpha:1.000];
-    _containerView.roundedBackground = YES;
-    _containerView.spacing = 5;
-    _containerView.offSetInX = 10;
-    _containerView.offSetInY = 5;
-    _containerView.lineWidthForSelection = 4;
-    _containerView.fillColor = [UIColor blueColor];
-    //_containerView.equalSpacing = NO;
-    _containerView.Style = PCLSegmentedControlStyleUnderline;
-    
-    
-    [self.view addSubview:_containerView];
+    self.segmentedControl2 = [[PCLSegmentedControl alloc]initWithImages:inputArray andFrame:self.segmentedControl2.frame];
+    self.segmentedControl2.backgroundColor = [UIColor colorWithWhite:0.698 alpha:1.000];
+    self.segmentedControl2.roundedBackground = NO;
+    self.segmentedControl2.lineWidthForSelection = 5;
+    self.segmentedControl2.fillColor = [UIColor blueColor];
+    self.segmentedControl2.offSetInY = 5;
+    self.segmentedControl2.Style = PCLSegmentedControlStyleUnderline;
+
+    [self.view addSubview:self.segmentedControl1];
+    [self.view addSubview:self.segmentedControl2];
     
  
-}
-
--(IBAction)getValue:(id)sender{
-    
-    self.label.text = [NSString stringWithFormat:@"%ld",(long)_containerView.selectedSegmentIndex];
-    
 }
 
 
