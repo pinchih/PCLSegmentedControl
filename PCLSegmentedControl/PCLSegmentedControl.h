@@ -36,7 +36,6 @@ typedef enum {
     @property (nonatomic) NSInteger spacing;
     @property (nonatomic) NSInteger offSetInX;
     @property (nonatomic) NSInteger offSetInY;
-    @property (nonatomic) NSInteger indicatorHeight;
     @property (nonatomic) NSInteger lineWidthForSelection;
     @property (nonatomic) NSUInteger numberOfSegments;
     @property (nonatomic) NSInteger selectedSegmentIndex;

@@ -147,7 +147,6 @@
     
     self.lineWidthForSelection = 0;
     self.segmentIconHeight = 0;
-    self.indicatorHeight = 5;
     self.spacing = 0;
     self.selectedSegmentIndex = 0;
     
