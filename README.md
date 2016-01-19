@@ -7,9 +7,9 @@ A view-based segmentedControl with different style of indicator for selected seg
 * Supports animation for selection indicator
 
 # Installation
-* Add QuartzCore.framework to your project
-* Add PCLSegmentedControl.h and PCLSegmentedControl.m to your porject
-* Import PCLSegmentedControl.h to your view controller
+* Add ```QuartzCore.framework``` to your project
+* Add ```PCLSegmentedControl.h``` and ```PCLSegmentedControl.m``` to your porject
+* Import ```PCLSegmentedControl.h``` to your view controller
 * In the xib file of your view controller, drag a View object and link it to your view controller as an IBOutlet
 * Under the identity inspector of this view, change the class to PCLSegmentedControl
 
