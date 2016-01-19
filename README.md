@@ -23,6 +23,9 @@ self.segmentedControl.lineWidthForSelection = 2;
 self.segmentedControl.offSetInY = 5;
 self.segmentedControl.fillColor = [UIColor blueColor];
 ```
+It's recommended to use a squre image as input, PCLSegmentedControl will automatically resize and convert them to a rounded image based on the height of PCLSegmentedControl's view and the **offSetInY** property that you specified. If not specified, the position of item in the view will be equal spacing, otherwise, you can set the **equalSpacing** property to NO and manually assign **spacing** and **offSetInX** properties.
+
+
 
 # Style and Animation
 PCLSegmentedControl provides two kinds of indicator style, which are ```PCLSegmentedControlStyleDefault``` and ```PCLSegmentedControlStyleUnderline```, and two kind of animations, which are ```PCLSegmentedControlAnimationTypeNone``` and ```PCLSegmentedControlAnimationTypeDefault```. If not specified, both their values will be the defalut one.
