@@ -13,6 +13,7 @@
 		A1D888BB1C49BFE800E539A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D888B91C49BFE800E539A7 /* Main.storyboard */; };
 		A1D888BD1C49BFE800E539A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1D888BC1C49BFE800E539A7 /* Assets.xcassets */; };
 		A1D888C01C49BFE800E539A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D888BE1C49BFE800E539A7 /* LaunchScreen.storyboard */; };
+		A1D888C91C49C01400E539A7 /* PCLSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D888C81C49C01400E539A7 /* PCLSegmentedControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		A1D888BC1C49BFE800E539A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1D888BF1C49BFE800E539A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1D888C11C49BFE800E539A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1D888C71C49C01400E539A7 /* PCLSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCLSegmentedControl.h; sourceTree = "<group>"; };
+		A1D888C81C49C01400E539A7 /* PCLSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCLSegmentedControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				A1D888B41C49BFE800E539A7 /* AppDelegate.m */,
 				A1D888B61C49BFE800E539A7 /* ViewController.h */,
 				A1D888B71C49BFE800E539A7 /* ViewController.m */,
+				A1D888C71C49C01400E539A7 /* PCLSegmentedControl.h */,
+				A1D888C81C49C01400E539A7 /* PCLSegmentedControl.m */,
 				A1D888B91C49BFE800E539A7 /* Main.storyboard */,
 				A1D888BC1C49BFE800E539A7 /* Assets.xcassets */,
 				A1D888BE1C49BFE800E539A7 /* LaunchScreen.storyboard */,
@@ -149,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1D888C91C49C01400E539A7 /* PCLSegmentedControl.m in Sources */,
 				A1D888B81C49BFE800E539A7 /* ViewController.m in Sources */,
 				A1D888B51C49BFE800E539A7 /* AppDelegate.m in Sources */,
 				A1D888B21C49BFE800E539A7 /* main.m in Sources */,
