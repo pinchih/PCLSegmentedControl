@@ -31,6 +31,6 @@ PCLSegmentedControl provides two kinds of indicator style, which are ```PCLSegme
 
 # License
 PCLSegmentedControl is licensed under the terms of the MIT License. 
-For more details, please see the LICENSE file.
+For more details, please see the [LICENSE Link](https://github.com/pinchih/PCLSegmentedControl/blob/master/LICENSE.md) file.
 
 
