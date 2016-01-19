@@ -1,2 +1,3 @@
 # PCLSegmentedControl
-Under construction
+A view-based segmentedControl with different style of indication for selected segment.
+# Features
