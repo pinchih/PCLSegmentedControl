@@ -28,6 +28,8 @@ self.segmentedControl.fillColor = [UIColor blueColor];
 PCLSegmentedControl provides two kinds of indicator style, which are ```PCLSegmentedControlStyleDefault``` and ```PCLSegmentedControlStyleUnderline```, and two kind of animations, which are ```PCLSegmentedControlAnimationTypeNone``` and ```PCLSegmentedControlAnimationTypeDefault```. If not specified, both their values will be the defalut one.
 
 # Screenshots
+![picture alt](https://cloud.githubusercontent.com/assets/12094516/12435023/8a0e253c-bebf-11e5-9d60-d872062d05ea.png)
+
 
 # License
 PCLSegmentedControl is licensed under the terms of the MIT License. 
