@@ -30,6 +30,9 @@ It's recommended to use a squre image as input, PCLSegmentedControl will automat
 # Style and Animation
 PCLSegmentedControl provides two kinds of indicator style, which are ```PCLSegmentedControlStyleDefault``` and ```PCLSegmentedControlStyleUnderline```, and two kind of animations, which are ```PCLSegmentedControlAnimationTypeNone``` and ```PCLSegmentedControlAnimationTypeDefault```. If not specified, both their values will be the defalut one.
 
+A picture shows how the properties are related to the layout:
+![picture alt](https://cloud.githubusercontent.com/assets/12094516/12436056/a78099f4-bec6-11e5-8369-3de0354d4b8c.png )
+
 # Screenshots
 ![picture alt](https://cloud.githubusercontent.com/assets/12094516/12435023/8a0e253c-bebf-11e5-9d60-d872062d05ea.png)
 
