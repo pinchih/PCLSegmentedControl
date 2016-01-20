@@ -35,7 +35,7 @@ A picture shows how the properties are related to the layout:
 
 # Screenshots
 A screenshot shows two different style of selection indicator, ```PCLSegmentedControlStyleDefault``` on top and ```PCLSegmentedControlStyleUnderline``` on the bottom:
-![picture alt](https://cloud.githubusercontent.com/assets/12094516/12435023/8a0e253c-bebf-11e5-9d60-d872062d05ea.png)
+![picture alt](https://cloud.githubusercontent.com/assets/12094516/12442612/36af7a5c-bf06-11e5-811a-69d6eb089ff2.png)
 
 
 # License
