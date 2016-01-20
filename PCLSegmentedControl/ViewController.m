@@ -43,6 +43,7 @@
     self.segmentedControl2.lineWidthForSelection = 5;
     self.segmentedControl2.fillColor = [UIColor blueColor];
     self.segmentedControl2.offSetInY = 5;
+    self.segmentedControl2.underlineHeight = 5;
     self.segmentedControl2.Style = PCLSegmentedControlStyleUnderline;
 
     [self.view addSubview:self.segmentedControl1];

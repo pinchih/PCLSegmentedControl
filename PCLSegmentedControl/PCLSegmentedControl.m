@@ -149,6 +149,7 @@
     self.segmentIconHeight = 0;
     self.spacing = 0;
     self.selectedSegmentIndex = 0;
+    self.underlineHeight = 0;
     
     self.numberOfSegments = [self.imageArray count];
     self.positionArray = [NSMutableArray new];
@@ -409,11 +410,9 @@
                     
                     CAShapeLayer * underlineSelectionLayer = [CAShapeLayer layer];
                     
+                    CGRect indicator = CGRectMake(x, y + iconHeight-self.underlineHeight, iconWidth, self.underlineHeight);
                     
-                    underlineSelectionLayer.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(x + iconWidth/2, y + iconHeight/2)                                                   radius:iconHeight/2 + self.lineWidthForSelection
-                                               startAngle:degreesToRadians(35)
-                                                 endAngle:degreesToRadians(145)
-                                                clockwise:YES].CGPath;
+                    underlineSelectionLayer.path = [UIBezierPath bezierPathWithRoundedRect:indicator cornerRadius:self.underlineHeight/2].CGPath;
                     
                     underlineSelectionLayer.fillColor = self.fillColor.CGColor;
                     
@@ -481,11 +480,7 @@
             
         }
         
-        
-        
-        
-        
-        
+
         switch (self.animation) {
             case PCLSegmentedControlAnimationTypeDefault:{
             
