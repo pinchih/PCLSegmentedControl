@@ -23,7 +23,7 @@ self.segmentedControl.lineWidthForSelection = 2;
 self.segmentedControl.offSetInY = 5;
 self.segmentedControl.fillColor = [UIColor blueColor];
 ```
-It's recommended to use a squre image as input, PCLSegmentedControl will automatically resize and convert them to a rounded image based on the height of PCLSegmentedControl's view and the **offSetInY** property that you specified. If not specified, the position of item in the view will be equal spacing, otherwise, you can set the **equalSpacing** property to NO and manually assign **spacing** and **offSetInX** properties.
+It's recommended to use a squre image as input, so that your contents can be shown properly. PCLSegmentedControl will automatically resize and convert them to a circle image based on the height of PCLSegmentedControl's view and the **offSetInY** property that you specified. If not specified, the distance of items in the view will be equal length, otherwise, you can set the **equalSpacing** property to NO and manually assign **spacing** and **offSetInX** properties.
 
 
 
@@ -34,6 +34,7 @@ A picture shows how the properties are related to the layout:
 ![picture alt](https://cloud.githubusercontent.com/assets/12094516/12436056/a78099f4-bec6-11e5-8369-3de0354d4b8c.png )
 
 # Screenshots
+A screenshot shows two different style of selection indicator, ```PCLSegmentedControlStyleDefault``` on top and ```PCLSegmentedControlStyleUnderline``` on the bottom:
 ![picture alt](https://cloud.githubusercontent.com/assets/12094516/12435023/8a0e253c-bebf-11e5-9d60-d872062d05ea.png)
 
 
