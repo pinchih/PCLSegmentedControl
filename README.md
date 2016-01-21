@@ -23,7 +23,7 @@ self.segmentedControl.lineWidthForSelection = 2;
 self.segmentedControl.offSetInY = 5;
 self.segmentedControl.fillColor = [UIColor blueColor];
 ```
-It's recommended to use a squre image as input, so that your contents can be shown properly. PCLSegmentedControl will automatically resize and convert them to a circle image based on the height of PCLSegmentedControl's view and the **offSetInY** property that you specified. If not specified, the distance of items in the view will be equal length, otherwise, you can set the **equalSpacing** property to NO and manually assign **spacing** and **offSetInX** properties.
+It's recommended to use a squre image as input, so that your contents can be shown properly. PCLSegmentedControl  automatically resizes and converts images to circle images based on the height of PCLSegmentedControl's view and the **offSetInY** property that you specified. If not specified, the distance of items in the view will be equal length, otherwise, you can set the **equalSpacing** property to NO and manually assign **spacing** and **offSetInX** properties.
 
 
 
