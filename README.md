@@ -1,10 +1,11 @@
 # PCLSegmentedControl
 A view-based segmentedControl with different style of indicator for selected segment.
 # Features
-* Supports images
-* Supports auto and manual layout for the views
-* Supports different style of selection indicator
-* Supports animation for selection indicator
+* Support images
+* Support auto and manual layout for the views
+* Support different style of selection indicator
+* Support animation for selection indicator
+* Support target-action method
 
 # Installation
 * Add ```QuartzCore.framework``` to your project
@@ -16,14 +17,25 @@ A view-based segmentedControl with different style of indicator for selected seg
 # Usage
 The following code shows how to setup a basic PCLSegmentedControl
 ```
+// In your view controller
 self.segmentedControl = [[PCLSegmentedControl alloc]initWithImages:imagesArray andFrame:self.segmentedControl.frame];
 self.segmentedControl.backgroundColor = [UIColor colorWithWhite:0.698 alpha:1.000];
 self.segmentedControl.roundedBackground = YES;
 self.segmentedControl.lineWidthForSelection = 2;
 self.segmentedControl.offSetInY = 5;
 self.segmentedControl.fillColor = [UIColor blueColor];
+[self.segmentedControl addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
 ```
-It's recommended to use a squre image as input, so that your contents can be shown properly. PCLSegmentedControl  automatically resizes and converts images to circle images based on the height of PCLSegmentedControl's view and the **offSetInY** property that you specified. If not specified, the distance of items in the view will be equal length, otherwise, you can set the **equalSpacing** property to NO and manually assign **spacing** and **offSetInX** properties.
+And if you need to get notified when selection changed , implement the  ```valueChanged``` method in your view controller:
+```
+- (void)valueChanged:(PCLSegmentedControl *)segmentedControl {
+      // Your own code here...
+      // For example, print the current index of selection
+      NSLog(@"Selected index:%ld",segmentedControl.selectedSegmentIndex);
+}
+```
+
+It's recommended to use a squre image as input, so that your contents can be shown properly. PCLSegmentedControl  automatically resizes and converts images to circle images based on the height of PCLSegmentedControl's view and the **offSetInY** property that you specified. If not specified, the distance of items in the view will be equal length, or, you can also set the **equalSpacing** property to NO and manually assign **spacing** and **offSetInX** properties.
 
 
 
@@ -35,7 +47,7 @@ A picture shows how the properties are related to the layout:
 
 # Screenshots
 A screenshot shows two different style of selection indicator, ```PCLSegmentedControlStyleDefault``` on top and ```PCLSegmentedControlStyleUnderline``` on the bottom:
-![picture alt](https://cloud.githubusercontent.com/assets/12094516/12442612/36af7a5c-bf06-11e5-811a-69d6eb089ff2.png)
+![picture alt](https://cloud.githubusercontent.com/assets/12094516/12562059/fbe48524-c357-11e5-9338-32c9f392acdc.png)
 
 
 # License
