@@ -49,6 +49,8 @@ A picture shows how the properties are related to the layout:
 A screenshot shows two different style of selection indicator, ```PCLSegmentedControlStyleDefault``` on top and ```PCLSegmentedControlStyleUnderline``` on the bottom:
 ![picture alt](https://cloud.githubusercontent.com/assets/12094516/12562059/fbe48524-c357-11e5-9338-32c9f392acdc.png)
 
+# Known issues
+* If the total sum of width of all image items is greater than the view width itself. The view will not be displayed properly. To fix this, the ability to scroll for the view is considered to be implemented in the future.
 
 # License
 PCLSegmentedControl is licensed under the terms of the MIT License. 
