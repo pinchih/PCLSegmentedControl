@@ -38,14 +38,12 @@ typedef enum {
     @property (nonatomic) NSInteger offSetInY;
     @property (nonatomic) NSInteger underlineHeight;
     @property (nonatomic) NSInteger lineWidthForSelection;
-    @property (nonatomic) NSUInteger numberOfSegments;
+    @property (nonatomic) NSInteger numberOfSegments;
     @property (nonatomic) NSInteger selectedSegmentIndex;
     @property (nonatomic) BOOL roundedBackground;
     @property (nonatomic) BOOL equalSpacing;
     @property (nonatomic) UIColor * backgroundColor;
     @property (nonatomic) UIColor * fillColor;
-
-
 
 
 -(instancetype)initWithImages:(NSArray*)imagesArray andFrame:(CGRect)frame;

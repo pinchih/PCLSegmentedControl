@@ -12,7 +12,8 @@
 
     @property (nonatomic) IBOutlet PCLSegmentedControl *segmentedControl1;
     @property (nonatomic) IBOutlet PCLSegmentedControl *segmentedControl2;
-
+    @property (nonatomic) IBOutlet UILabel * label1;
+    @property (nonatomic) IBOutlet UILabel * label2;
 @end
 
 @implementation ViewController
@@ -36,6 +37,7 @@
     self.segmentedControl1.offSetInY = 5;
     self.segmentedControl1.fillColor = [UIColor blueColor];
     
+    [self.segmentedControl1 addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
     
     self.segmentedControl2 = [[PCLSegmentedControl alloc]initWithImages:inputArray andFrame:self.segmentedControl2.frame];
     self.segmentedControl2.backgroundColor = [UIColor colorWithWhite:0.698 alpha:1.000];
@@ -45,11 +47,28 @@
     self.segmentedControl2.offSetInY = 5;
     self.segmentedControl2.underlineHeight = 5;
     self.segmentedControl2.Style = PCLSegmentedControlStyleUnderline;
-
+    [self.segmentedControl2 addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
+    
     [self.view addSubview:self.segmentedControl1];
     [self.view addSubview:self.segmentedControl2];
     
+    
  
+}
+
+
+- (void)valueChanged:(PCLSegmentedControl *)segmentedControl {
+    
+    if (segmentedControl.roundedBackground == NO) {
+        
+        self.label2.text = [@"Selected index: " stringByAppendingString:[NSString stringWithFormat:@"%ld",segmentedControl.selectedSegmentIndex]];
+        
+    }else{
+        
+        self.label1.text = [@"Selected index: " stringByAppendingString:[NSString stringWithFormat:@"%ld",segmentedControl.selectedSegmentIndex]];
+        
+    }
+    
 }
 
 

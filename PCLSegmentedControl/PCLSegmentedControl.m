@@ -15,6 +15,7 @@
     @property (nonatomic) CGFloat segmentIconHeight;
     @property (nonatomic) CGFloat autoSpacing;
     @property (nonatomic) NSMutableArray * positionArray;
+    @property (nonatomic) NSMutableArray * arrayForItemCGRect;
 
 
 @end
@@ -89,53 +90,6 @@
     
     [self generalSetup];
     
-    /*
-    UIImage * logo1 = [UIImage imageNamed:@"logo1"];
-    UIImage * logo2 = [UIImage imageNamed:@"logo2"];
-    
-    NSArray * inputArray = [[NSArray alloc] initWithObjects:logo1,logo2, nil];
-
-    
-    //for (UIImage * image in inputArray) {
-        
-        //NSLog(@"test");
-    
-        UIImageView * view = [[UIImageView alloc] initWithImage:logo1];
-    
-        view.clipsToBounds = YES;
-        view.layer.cornerRadius = view.bounds.size.width / 2;
-        view.layer.borderWidth = 10;
-        view.layer.borderColor = [UIColor colorWithRed:0.433 green:0.781 blue:1.000 alpha:1.000].CGColor;
-
-    
-        //[self addSubview:[self returnRoundedImageWithInputImage:logo1 withHeight:100]];
-        [self addSubview:view];
-    
-   //}
-    
-    //[self addSubview:[self inputImage:logo1 withWidth:50 andHeight:50]];
-    
-    */
-    
-    
-    
-    
-//    for (UIImage * image in _imageArray) {
-//        
-//        UIImageView * view = [[UIImageView alloc] initWithImage:image];
-//        
-//        view.clipsToBounds = YES;
-//        view.layer.cornerRadius = view.bounds.size.width / 2;
-//        view.layer.borderWidth = 10;
-//        view.layer.borderColor = [UIColor colorWithRed:0.433 green:0.781 blue:1.000 alpha:1.000].CGColor;
-//        
-//        [self addSubview:view];
-//        
-//    }
-//    
-//    [self setNeedsDisplay];
-    
-    
 }
 
 
@@ -153,6 +107,7 @@
     
     self.numberOfSegments = [self.imageArray count];
     self.positionArray = [NSMutableArray new];
+    self.arrayForItemCGRect = [NSMutableArray new];
     
     self.backgroundLayer = [CALayer layer];
     self.segmentedItemLayer = [CAShapeLayer layer];
@@ -267,6 +222,9 @@
 
 - (void)drawRect:(CGRect)rect {
     
+    // Remove the old CGRect in the array
+    [self.arrayForItemCGRect removeAllObjects];
+    
     // Fill superview's background with white color
     [[UIColor whiteColor] setFill];
     UIRectFill([self bounds]);
@@ -287,7 +245,7 @@
         
     }
 
-    
+    // Check which style user has defined
     switch (self.Style) {
             
 
@@ -295,7 +253,8 @@
             
             // Iterate through images and add them to the view
             [self.imageArray enumerateObjectsUsingBlock:^(UIImage * image, NSUInteger index, BOOL *stop){
-            
+                
+                // Obtain a circle image from the orignial image
                 UIImage * iconForSegmentedContorlItem = [self returnRoundedImageWithInputImage:image
                                                                                     withHeight:self.frame.size.height - 2*self.offSetInY -2*self.lineWidthForSelection];
                 
@@ -307,6 +266,8 @@
                 CGFloat x,y;
                 CGRect rect;
                 
+                
+                // Different layout for equal spacing or manual spacing
                 if (self.equalSpacing) {
                     
                     NSInteger numberOfGap = self.numberOfSegments+1;
@@ -325,12 +286,19 @@
 
                 }
                 
+                // Store the CGRect for each item, which are used for checking touch event
+                [self.arrayForItemCGRect addObject:[NSValue valueWithCGRect:rect]];
+                
+                
                 [self.positionArray addObject:[NSNumber numberWithFloat:x]];
                 
+                
+                // This CALayer is for the circle image
                 CALayer * imageLayer = [CALayer layer];
                 imageLayer.contents = (id)iconForSegmentedContorlItem.CGImage;
                 imageLayer.frame = rect;
                 
+                // If the imaged is selected, create a circle background layer and put it under image layer
                 if (self.selectedSegmentIndex == index) {
                     
                     self.segmentedItemLayer.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(x+iconWidth/2, y+iconHeight/2)
@@ -342,7 +310,8 @@
                     
                     [self.layer addSublayer:self.segmentedItemLayer];
                 }
-
+                
+                // Add image layer to the view
                 [self.layer addSublayer:imageLayer];
             
             }];
@@ -352,6 +321,7 @@
             
             
         }case PCLSegmentedControlStyleUnderline:{
+            
             
             self.animation = PCLSegmentedControlAnimationTypeNone;
             
@@ -396,6 +366,8 @@
                     rect = CGRectMake(x, y, iconWidth, iconHeight);
                     
                 }
+                
+                [self.arrayForItemCGRect addObject:[NSValue valueWithCGRect:rect]];
 
                 CALayer * imageLayer = [CALayer layer];
                 imageLayer.contents = (id)iconForSegmentedContorlItem.CGImage;
@@ -451,32 +423,17 @@
     
     if ( CGRectContainsPoint(self.bounds, touchLocation)) {
         
-        NSInteger segmentIndex = 0;
         
-        
-        if (self.equalSpacing) {
+        for (NSValue * value in self.arrayForItemCGRect) {
             
-            
-            while (self.autoSpacing + self.segmentIconHeight*segmentIndex + self.autoSpacing*segmentIndex < touchLocation.x ) {
+            if (CGRectContainsPoint([value CGRectValue], touchLocation)) {
                 
-                segmentIndex++;
-                
+                self.selectedSegmentIndex = [self.arrayForItemCGRect indexOfObject:value];
+
+                [self sendActionsForControlEvents:UIControlEventValueChanged];
                 
             }
             
-            self.selectedSegmentIndex = segmentIndex - 1;
-            
-            
-        }else{
-        
-            while (self.offSetInX + self.segmentIconHeight*segmentIndex + self.spacing*segmentIndex < touchLocation.x ) {
-                
-                segmentIndex++;
-                
-                
-            }
-            
-            self.selectedSegmentIndex = segmentIndex - 1;
             
         }
         
@@ -535,6 +492,7 @@
     
     
 }
+
 
 
 
