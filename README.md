@@ -25,6 +25,7 @@ self.segmentedControl.lineWidthForSelection = 2;
 self.segmentedControl.offSetInY = 5;
 self.segmentedControl.fillColor = [UIColor blueColor];
 [self.segmentedControl addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
+[self.view addSubview:self.segmentedControl];
 ```
 And if you need to get notified when selection changed , implement the  ```valueChanged``` method in your view controller:
 ```
